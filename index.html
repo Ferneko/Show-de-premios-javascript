@@ -1,0 +1,87 @@
+<center>
+<script>
+    var alunos = [
+"ALEXANDRE CARLOS TRIPODI",
+"ANDREA CRISTINA REINO FURLANI",
+"CREDIANO MARIA DE SOUSA",
+"DANIELI CARLOS FRANCELINO FERREIRA",
+"DAVID OSVALDO SCANDIUSSI",
+"DEISE CRISTINA MANOEL DA SILVA CAMPOS",
+"DIEGO GABRIEL FERRARI",
+"DIEGO GUSTAVO FERREIRA LOPES",
+"ERICK NATTAN DE SOUZA LIMA",
+"EVERTON RICARDO DA SILVA FEITOSA",
+"FELIPE FERREIRA DEL GRANDE",
+"GABRIEL MATEUS ZENERATO",
+"GABRIELE CONFORTINI BATISTA",
+"GERSON ANTONIO DE OLIVEIRA",
+"GRAZIELE AMANDA VENANCIO",
+"GUSTAVO HENRIQUE CORREA",
+"JEFFERSON JORGE M. BAPTISTA DE AGUIAR",
+"JESSICA SOUZA DA SILVA",
+"KAREN CRISTINA DE GOIS SANTOS",
+"LEANDRO CORREA",
+"LICIA DOS SANTOS",
+"LUIZ GUSTAVO REIS",
+"MARCEL LUIS MATTOS",
+"MARIZA DELINDA DA CRUZ",
+"MATEUS ANDRE BOMBARDA",
+"MILTON JOSE MARQUES JUNIOR",
+"NILWEND KIMBERLLY STEINLE",
+"PAULO CESAR DE SOUSA MORAIS",
+"PIETRO BONORA",
+"TAINA GIRIO RODRIGUES",
+"TAMIRIS ROSA FORTE",
+"VINICIUS DA SILVA RODRIGUES"
+];
+
+var nomesSorteados = [];
+
+function GerarNumeroAleatorio()
+{
+    var numeroSorteado =  Math.random() ;
+    numeroSorteado = numeroSorteado * 32;
+    numeroSorteado = Math.floor(numeroSorteado);
+    return numeroSorteado;
+}
+
+function sorteio()
+{
+    var numeroGerado = GerarNumeroAleatorio()
+    if( verificarNomeRepetido( alunos[numeroGerado] ) )
+    {
+        return sorteio()
+    }
+    else
+    {
+        return alunos[numeroGerado]
+    }
+}
+
+
+
+function verificarNomeRepetido(nome)
+{
+    for(var i = 0; i < nomesSorteados.length; i++)
+    {
+        if(nome == nomesSorteados[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+for(var i = 0; i < 1; i++)
+{
+    nomesSorteados.push(sorteio())
+}
+
+for(var i = 0 ; i < nomesSorteados.length; i ++)
+{
+    document.write("<h1>"+ i +" - "+nomesSorteados[i]+"</h1><br>")
+}
+
+
+</script>
+</center>
